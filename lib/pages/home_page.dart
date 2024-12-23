@@ -99,8 +99,24 @@ final AppDb database = AppDb();
             ),),
             //text transaksi
             Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text("Transaksi", style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold)),
+             padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/icon.png', 
+                    width: 24, 
+                    height: 24, 
+                  ),
+                  SizedBox(width: 8), 
+                  Text(
+                    "Transaksi",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
             StreamBuilder<List<TransactionWithCategory>>(
               stream: database.getTransactionByDateRepo(widget.selectedDate),
